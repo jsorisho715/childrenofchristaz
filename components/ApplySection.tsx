@@ -49,15 +49,6 @@ export default function ApplySection() {
             If you're in need of assistance, please complete the application below. Submitting this form does not
             guarantee you will receive items. All distributions are based on need and availability.
           </p>
-
-          <Link href="/assistance-application-form.pdf" target="_blank" rel="noopener noreferrer">
-            <Button
-              className="border-gold-500 text-gold-400 hover:bg-gold-900/20 hover:text-gold-300 mb-6 md:mb-8 bg-black/50 h-12 px-5"
-            >
-              <Download className="w-4 h-4 mr-2" />
-              Download Printable Application
-            </Button>
-          </Link>
         </div>
 
         <div className="bg-gray-900 rounded-2xl shadow-xl p-5 sm:p-8 border border-gold-600/30">

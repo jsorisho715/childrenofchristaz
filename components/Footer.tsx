@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-gradient-to-b from-gray-900 to-black text-gold-100 py-12 border-t border-gold-600/30">
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
           {/* Organization Info */}
           <div>
             <h3 className="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-gold-600 mb-4">
@@ -75,34 +75,7 @@ export default function Footer() {
                   Deployment Help
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/assistance-application-form.pdf"
-                  className="hover:text-gold-400 transition-colors text-sm md:text-base inline-block py-1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Download Application
-                </Link>
-              </li>
             </ul>
-          </div>
-
-          {/* Bitcoin Donation */}
-          <div className="text-center sm:col-span-2 md:col-span-1">
-            <h4 className="text-lg font-semibold text-gold-400 mb-4">Bitcoin Donations</h4>
-            <div className="flex justify-center mb-3">
-              <div className="relative w-[100px] h-[100px] md:w-[120px] md:h-[120px]">
-                <Image
-                  src="/btc_donation_qr.png"
-                  alt="Bitcoin donation QR code"
-                  fill
-                  sizes="(max-width: 768px) 100px, 120px"
-                  className="rounded-lg object-contain"
-                />
-              </div>
-            </div>
-            <p className="text-sm text-gold-400">Scan to donate via Bitcoin</p>
           </div>
         </div>
 

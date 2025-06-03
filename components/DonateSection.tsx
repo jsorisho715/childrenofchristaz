@@ -46,9 +46,9 @@ export default function DonateSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+        <div className="grid md:grid-cols-1 gap-8 md:gap-12 items-start">
           {/* Donation Form - Mobile optimized */}
-          <div className="bg-gray-900 rounded-2xl shadow-xl p-5 sm:p-8 border border-gold-600/30 golden-pulse order-2 md:order-1 border-accent">
+          <div className="bg-gray-900 rounded-2xl shadow-xl p-5 sm:p-8 border border-gold-600/30 golden-pulse border-accent">
             {state.message && (
               <Alert
                 className={`mb-6 ${state.success ? "border-green-500 bg-green-900/20" : "border-red-500 bg-red-900/20"}`}
@@ -245,28 +245,6 @@ export default function DonateSection() {
                 {pending ? "Processing..." : "Donate Now"}
               </Button>
             </form>
-          </div>
-
-          {/* Bitcoin Donation - Mobile optimized */}
-          <div className="bg-gray-900 rounded-2xl shadow-xl p-5 sm:p-8 border border-gold-600/30 text-center order-1 md:order-2 border-accent">
-            <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 heading-accent">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-gold-600">
-                Bitcoin Donations
-              </span>
-            </h3>
-            <div className="flex justify-center mb-4">
-              <div className="relative w-[180px] h-[180px] md:w-[200px] md:h-[200px]">
-                <Image
-                  src="/btc_donation_qr.png"
-                  alt="Bitcoin donation QR code"
-                  fill
-                  sizes="(max-width: 768px) 180px, 200px"
-                  className="rounded-lg shadow-md object-contain"
-                />
-              </div>
-            </div>
-            <p className="text-gold-300 font-medium">Scan to donate via Bitcoin</p>
-            <p className="text-sm text-gold-500 mt-2">Cryptocurrency donations are also tax-deductible</p>
           </div>
         </div>
       </div>
