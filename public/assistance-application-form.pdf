@@ -1,0 +1,41 @@
+1. HEADER:
+- Organization name 'Children of Christ' in gold/amber color
+- Subtitle: 'Assistance Application Form'
+- Organization address: 22039 N 24th Ave, Phoenix, AZ 85027
+- EIN: 99-2902695
+- Gold accent borders or design elements
+
+2. FILLABLE FORM FIELDS (all with adequate space):
+- Full Name (required)
+- Email Address (required)
+- Phone Number (required)
+- Complete Mailing Address with street, city, state, zip (required)
+- Number of Adults in Household (required, numeric field)
+- Number of Children in Household (numeric field)
+- Ages of Children (text field)
+- Monthly Household Income (required, currency field)
+- Source(s) of Income (required, text field)
+- Government Assistance Received? (required, Yes/No radio buttons)
+- Description of Need (required, multi-line text area)
+- Intended Use of Items (required, multi-line text area)
+
+3. DESIGN SPECIFICATIONS:
+- Clean, professional layout with gold/amber and black color scheme
+- Mobile-friendly design (readable on small screens)
+- Print-friendly (works well in black and white)
+- Clear section headings
+- Required fields marked with asterisk (*)
+- Adequate space for typed or handwritten responses
+- Form fields that can be filled electronically
+
+4. FOOTER SECTION:
+- Signature line with date
+- Certification statement: 'I certify that all information provided is true and accurate. I understand that submitting this application does not guarantee receipt of assistance.'
+- Legal disclaimer: 'Items received may not be resold, bartered, auctioned, or exchanged for money or services. All items are for personal use only.'
+- Submission instructions: 'Submit completed form via email to applications@childrenofchrist.org or mail to our address above.'
+
+5. TECHNICAL REQUIREMENTS:
+- PDF form with fillable fields that can be saved
+- Optimized for both desktop and mobile viewing
+- Print-ready at standard 8.5 x 11 inch paper size
+- Accessible design with proper field labels for screen readers"

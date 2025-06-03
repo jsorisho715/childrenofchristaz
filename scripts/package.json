@@ -1,0 +1,11 @@
+{
+  "name": "diagnostic-scripts",
+  "version": "1.0.0",
+  "description": "Diagnostic scripts for Children of Christ website",
+  "scripts": {
+    "diagnose": "node diagnostic-check.js",
+    "test-build": "cd .. && npm run build",
+    "test-dev": "cd .. && npm run dev",
+    "full-check": "npm run diagnose && npm run test-build"
+  }
+}

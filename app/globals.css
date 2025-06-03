@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 45 100% 85%;
+    --card: 0 0% 8%;
+    --card-foreground: 45 100% 85%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 45 100% 85%;
+    --primary: 45 93% 47%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 45 100% 85%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 45 20% 65%;
+    --accent: 45 93% 47%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 45 93% 47%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Improved tap target sizes for mobile */
+  button,
+  a,
+  input[type="checkbox"],
+  input[type="radio"] {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  /* Better form element focus states for mobile */
+  input:focus,
+  textarea:focus,
+  select:focus,
+  button:focus,
+  a:focus {
+    @apply outline-none ring-2 ring-gold-500;
+  }
+
+  /* Improved text readability */
+  p,
+  li,
+  label,
+  input,
+  textarea,
+  select {
+    @apply text-base leading-relaxed;
+  }
+
+  /* Prevent text from being too small on mobile */
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+}
+
+/* Custom animations for spiritual elements */
+@keyframes divine-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.6);
+  }
+}
+
+.divine-glow {
+  animation: divine-glow 3s ease-in-out infinite;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+.focus\:ring-yellow-500:focus {
+  --tw-ring-color: rgb(234 179 8);
+}
+
+.focus\:border-yellow-500:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(234 179 8);
+}
+
+@keyframes golden-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(251, 191, 36, 0.6), 0 0 60px rgba(251, 191, 36, 0.4);
+  }
+}
+
+.golden-pulse {
+  animation: golden-pulse 3s ease-in-out infinite;
+}
+
+@keyframes golden-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.golden-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: golden-shimmer 2s infinite;
+}
+
+/* Mobile optimization */
+@media (max-width: 640px) {
+  .golden-pulse {
+    animation: none; /* Disable animations on mobile for better performance */
+  }
+
+  /* Improve touch targets */
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    @apply py-3;
+  }
+
+  /* Prevent text from being too small */
+  html {
+    font-size: 16px;
+  }
+}
+
+/* Prevent content from being hidden under fixed header */
+section {
+  scroll-margin-top: 4rem;
+}
+
+/* Improve form element accessibility */
+input,
+textarea,
+select {
+  @apply appearance-none;
+}
+
+/* Prevent zoom on input focus on iOS */
+@supports (-webkit-touch-callout: none) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
