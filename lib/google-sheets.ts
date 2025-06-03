@@ -28,6 +28,7 @@ const sheets = google.sheets({ version: "v4", auth })
 export interface DonationData {
   name: string
   email: string
+  phone: string
   sponsorshipTier: string
   otherAmount?: string
   monthlySponsorship: boolean
@@ -64,6 +65,10 @@ export function validateDonationData(data: any): DonationData {
     errors.push("Valid email address is required")
   }
 
+  if (!data.phone || typeof data.phone !== "string" || data.phone.replace(/\D/g, '').length < 10) {
+    errors.push("Valid phone number is required")
+  }
+
   if (!data.sponsorshipTier || typeof data.sponsorshipTier !== "string") {
     errors.push("Sponsorship tier is required")
   }
@@ -82,6 +87,7 @@ export function validateDonationData(data: any): DonationData {
   return {
     name: data.name.trim(),
     email: data.email.toLowerCase().trim(),
+    phone: data.phone.trim(),
     sponsorshipTier: data.sponsorshipTier,
     otherAmount: data.otherAmount || "",
     monthlySponsorship: Boolean(data.monthlySponsorship),
@@ -172,6 +178,7 @@ export async function appendToDonationSheet(data: DonationData): Promise<void> {
         data.timestamp,
         data.name,
         data.email,
+        data.phone,
         data.sponsorshipTier,
         data.otherAmount,
         data.monthlySponsorship ? "Yes" : "No",
@@ -181,7 +188,7 @@ export async function appendToDonationSheet(data: DonationData): Promise<void> {
 
     await sheets.spreadsheets.values.append({
       spreadsheetId: GOOGLE_SHEETS_SPREADSHEET_ID,
-      range: "Donations!A:G",
+      range: "Donations!A:H",
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values,
@@ -274,11 +281,11 @@ export async function initializeSpreadsheet(): Promise<void> {
       // Add headers to Donations sheet
       await sheets.spreadsheets.values.update({
         spreadsheetId: GOOGLE_SHEETS_SPREADSHEET_ID,
-        range: "Donations!A1:G1",
+        range: "Donations!A1:H1",
         valueInputOption: "USER_ENTERED",
         requestBody: {
           values: [
-            ["Timestamp", "Name", "Email", "Sponsorship Tier", "Other Amount", "Monthly Sponsorship", "IP Address"],
+            ["Timestamp", "Name", "Email", "Phone Number", "Sponsorship Tier", "Other Amount", "Monthly Sponsorship", "IP Address"],
           ],
         },
       })

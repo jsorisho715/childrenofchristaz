@@ -16,36 +16,36 @@
     --secondary-foreground: 45 100% 85%;
     --muted: 0 0% 15%;
     --muted-foreground: 45 20% 65%;
-    --accent: 45 93% 47%;
+    --accent: 42 98% 55%;
     --accent-foreground: 0 0% 0%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 0 0% 20%;
+    --border: 42 98% 40%;
     --input: 0 0% 20%;
-    --ring: 45 93% 47%;
+    --ring: 45 98% 60%;
     --radius: 0.5rem;
   }
 
   .dark {
     --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --foreground: 45 100% 85%;
     --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card-foreground: 45 100% 85%;
     --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
+    --popover-foreground: 45 100% 85%;
+    --primary: 45 100% 85%;
     --primary-foreground: 222.2 47.4% 11.2%;
     --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary-foreground: 45 100% 85%;
     --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --muted-foreground: 45 20% 65%;
+    --accent: 42 98% 55%;
+    --accent-foreground: 0 0% 0%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
+    --border: 42 98% 40%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --ring: 45 98% 60%;
   }
 }
 
@@ -53,8 +53,9 @@
   * {
     @apply border-border;
   }
-  body {
+  body, main {
     @apply bg-background text-foreground;
+    background-color: #0A0603 !important;
   }
 
   /* Improved tap target sizes for mobile */
@@ -71,7 +72,7 @@
   select:focus,
   button:focus,
   a:focus {
-    @apply outline-none ring-2 ring-gold-500;
+    @apply outline-none ring-2 ring-accent;
   }
 
   /* Improved text readability */
@@ -189,4 +190,16 @@ select {
   textarea {
     font-size: 16px !important;
   }
+}
+
+button:hover, .btn:hover {
+  @apply bg-gradient-to-r from-gold-500 to-gold-700 border-accent shadow-lg;
+}
+
+.border-accent {
+  border-color: hsl(var(--accent));
+}
+
+.heading-accent {
+  color: hsl(var(--accent));
 }

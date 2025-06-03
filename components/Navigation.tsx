@@ -69,8 +69,7 @@ export default function Navigation() {
             <NavLink href="#about" label="About Us" />
             <Button
               asChild
-              size="sm"
-              className="ml-2 bg-gradient-to-r from-gold-600 to-gold-700 hover:from-gold-500 hover:to-gold-600 text-black font-bold"
+              className="ml-2 bg-gradient-to-r from-gold-500 to-gold-700 hover:from-gold-400 hover:to-gold-600 text-black font-bold text-base sm:text-lg py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-offset-2 border-0"
             >
               <Link href="#donate">Donate Now</Link>
             </Button>
@@ -100,7 +99,7 @@ export default function Navigation() {
           <MobileNavLink href="#about" label="About Us" onClick={() => setIsMenuOpen(false)} />
           <Button
             asChild
-            className="w-full mt-4 py-6 text-lg bg-gradient-to-r from-gold-600 to-gold-700 hover:from-gold-500 hover:to-gold-600 text-black font-bold"
+            className="w-full mt-4 py-6 text-lg bg-gradient-to-r from-gold-500 to-gold-700 hover:from-gold-400 hover:to-gold-600 text-black font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-offset-2 border-0"
           >
             <Link href="#donate" onClick={() => setIsMenuOpen(false)}>
               Donate Now

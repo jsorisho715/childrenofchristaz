@@ -13,7 +13,7 @@ export interface DonationFormState {
 export async function submitDonation(prevState: DonationFormState, formData: FormData): Promise<DonationFormState> {
   try {
     // Get client IP address for logging
-    const headersList = headers()
+    const headersList = await headers()
     const forwardedFor = headersList.get("x-forwarded-for")
     const realIp = headersList.get("x-real-ip")
     const ipAddress = forwardedFor?.split(",")[0] || realIp || "unknown"
@@ -22,6 +22,7 @@ export async function submitDonation(prevState: DonationFormState, formData: For
     const rawData = {
       name: formData.get("name") as string,
       email: formData.get("email") as string,
+      phone: formData.get("phone") as string,
       sponsorshipTier: formData.get("sponsorshipTier") as string,
       otherAmount: formData.get("otherAmount") as string,
       monthlySponsorship: formData.get("monthlySponsorship") === "true",

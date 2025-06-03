@@ -37,8 +37,7 @@ export default function AboutSection() {
             <div className="bg-gradient-to-r from-gold-900/30 to-gold-800/30 rounded-lg p-4 md:p-6 border border-gold-600/50">
               <h3 className="text-lg md:text-xl font-bold text-gold-300 mb-2 md:mb-3">Our Mission</h3>
               <p className="text-gold-200 leading-relaxed text-sm md:text-base">
-                To serve Christ by providing essential goods and support to families in need, demonstrating God's love
-                through practical assistance and compassionate care.
+                Everyone is a child of Christ. Our mission is to use the resources available to us—gifts, donations, time, and faith—to serve our neighbors and uplift our community in the spirit of Christ's love.
               </p>
             </div>
           </div>

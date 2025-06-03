@@ -16,7 +16,7 @@ export async function submitApplication(
 ): Promise<ApplicationFormState> {
   try {
     // Get client IP address for logging
-    const headersList = headers()
+    const headersList = await headers()
     const forwardedFor = headersList.get("x-forwarded-for")
     const realIp = headersList.get("x-real-ip")
     const ipAddress = forwardedFor?.split(",")[0] || realIp || "unknown"
@@ -56,12 +56,46 @@ export async function submitApplication(
     console.error("Application submission error:", error)
 
     if (error instanceof Error && error.message.startsWith("Validation failed:")) {
+      // Parse validation errors into field-level errors
+      const errorMessage = error.message.replace("Validation failed: ", "")
+      const errors: Record<string, string[]> = {}
+      
+      // Split error message into individual errors
+      const errorParts = errorMessage.split(", ")
+      
+      // Map errors to their respective fields
+      errorParts.forEach((part) => {
+        if (part.includes("Full name")) {
+          errors.fullName = [part]
+        } else if (part.includes("email")) {
+          errors.email = [part]
+        } else if (part.includes("phone")) {
+          errors.phone = [part]
+        } else if (part.includes("address")) {
+          errors.address = [part]
+        } else if (part.includes("adults")) {
+          errors.adults = [part]
+        } else if (part.includes("children")) {
+          errors.children = [part]
+        } else if (part.includes("childrenAges")) {
+          errors.childrenAges = [part]
+        } else if (part.includes("monthly income")) {
+          errors.monthlyIncome = [part]
+        } else if (part.includes("income source")) {
+          errors.incomeSource = [part]
+        } else if (part.includes("Government assistance")) {
+          errors.governmentAssistance = [part]
+        } else if (part.includes("Description of need")) {
+          errors.needDescription = [part]
+        } else if (part.includes("Intended use")) {
+          errors.intendedUse = [part]
+        }
+      })
+
       return {
         success: false,
-        message: "Please check your information and try again.",
-        errors: {
-          form: [error.message.replace("Validation failed: ", "")],
-        },
+        message: "Please check the highlighted fields below and try again.",
+        errors,
       }
     }
 
