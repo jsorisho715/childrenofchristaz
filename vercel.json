@@ -6,10 +6,5 @@
     "app/api/*/route.ts": {
       "maxDuration": 30
     }
-  },
-  "env": {
-    "GOOGLE_SHEETS_SPREADSHEET_ID": "@google_sheets_spreadsheet_id",
-    "GOOGLE_SHEETS_CLIENT_EMAIL": "@google_sheets_client_email",
-    "GOOGLE_SHEETS_PRIVATE_KEY": "@google_sheets_private_key"
   }
 }
