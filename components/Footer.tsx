@@ -51,30 +51,6 @@ export default function Footer() {
                   About Us
                 </Link>
               </li>
-              <li className="mb-3 sm:mb-0">
-                <Link
-                  href="/verify-setup"
-                  className="hover:text-gold-400 transition-colors text-sm md:text-base inline-block py-1"
-                >
-                  Verify Setup
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/diagnostics"
-                  className="hover:text-gold-400 transition-colors text-sm md:text-base inline-block py-1"
-                >
-                  System Diagnostics
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/deployment-help"
-                  className="hover:text-gold-400 transition-colors text-sm md:text-base inline-block py-1"
-                >
-                  Deployment Help
-                </Link>
-              </li>
             </ul>
           </div>
         </div>
