@@ -5,7 +5,7 @@ import { ChevronDown } from "lucide-react"
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[85vh] flex flex-col items-center justify-end overflow-hidden pt-16 md:pt-20 pb-0">
+    <section className="relative h-screen flex flex-col items-center justify-end overflow-hidden pt-16 md:pt-20 pb-0">
       {/* Background Image with optimized loading */}
       <div className="absolute inset-0 z-0 flex items-center justify-center">
         <div className="relative w-full h-full flex items-center justify-center">
@@ -14,10 +14,12 @@ export default function HeroSection() {
             alt="Golden Jesus background"
             fill
             sizes="100vw"
-            className="object-contain object-center max-h-[70vh] md:max-h-[80vh] mx-auto drop-shadow-2xl"
+            className="object-cover object-center mx-auto drop-shadow-2xl"
             priority
             quality={100}
           />
+          {/* Top gradient for polished blend */}
+          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black via-transparent to-transparent pointer-events-none" />
           {/* Subtle dark vignette for contrast */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/80 pointer-events-none rounded-b-3xl" />
         </div>
@@ -25,7 +27,7 @@ export default function HeroSection() {
 
       {/* Content - moved below image */}
       <div className="relative z-10 w-full max-w-4xl mx-auto px-4 pb-10 pt-0 flex flex-col items-center">
-        <div className="space-y-6 sm:space-y-8 bg-black/40 rounded-2xl p-6 md:p-8 shadow-2xl">
+        <div className="space-y-6 sm:space-y-8 bg-black/60 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-2xl">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gold-200 drop-shadow-xl text-center">
             Children of Christ
           </h1>
@@ -38,13 +40,13 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
             <Button
               asChild
-              className="w-full sm:w-auto bg-gradient-to-r from-gold-500 to-gold-700 hover:from-gold-400 hover:to-gold-600 text-black font-bold text-base sm:text-lg py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-offset-2 border-0"
+              className="w-full sm:w-auto rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 shadow-lg hover:from-yellow-400 hover:to-orange-400 text-black font-bold text-base sm:text-lg py-4 px-8 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 border-0"
             >
               <Link href="#donate">Donate Now</Link>
             </Button>
             <Button
               asChild
-              className="w-full sm:w-auto bg-gradient-to-r from-gold-700 to-gold-500 hover:from-gold-600 hover:to-gold-400 text-black font-bold text-base sm:text-lg py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-offset-2 border-0"
+              className="w-full sm:w-auto rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 shadow-lg hover:from-yellow-400 hover:to-orange-400 text-black font-bold text-base sm:text-lg py-4 px-8 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 border-0"
             >
               <Link href="#apply">Apply for Help</Link>
             </Button>

@@ -1,6 +1,6 @@
 "use client"
 
-import { useActionState } from "react"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -10,7 +10,8 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import { CheckCircle, AlertCircle, Download } from "lucide-react"
 import Link from "next/link"
 import { submitApplication } from "@/app/actions/application"
-import React, { useState } from "react"
+import FormErrorMessage from "./FormErrorMessage"
+import { formValidationMessages } from "@/lib/formValidationMessages"
 
 const initialState = {
   success: false,
@@ -19,7 +20,8 @@ const initialState = {
 }
 
 export default function ApplySection() {
-  const [state, formAction, pending] = useActionState(submitApplication, initialState)
+  const [state, setState] = useState(initialState)
+  const [pending, setPending] = useState(false)
   const [selectedAssistance, setSelectedAssistance] = useState<string>("")
 
   const handleAssistanceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,6 +36,20 @@ export default function ApplySection() {
   // Helper function to check if field has error
   const hasFieldError = (fieldName: string) => {
     return !!state.errors?.[fieldName]?.[0]
+  }
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setPending(true)
+    setState(initialState)
+    const formData = new FormData(event.currentTarget)
+    formData.set("governmentAssistance", selectedAssistance)
+    const result = await submitApplication(initialState, formData)
+    setState({
+      ...result,
+      errors: result.errors ?? {},
+    })
+    setPending(false)
   }
 
   return (
@@ -68,10 +84,7 @@ export default function ApplySection() {
           )}
 
           <form
-            action={(formData) => {
-              formData.set("governmentAssistance", selectedAssistance)
-              return formAction(formData)
-            }}
+            onSubmit={handleSubmit}
             className="space-y-6"
           >
             <div className="grid sm:grid-cols-2 gap-6">
@@ -91,7 +104,10 @@ export default function ApplySection() {
                     }`}
                   />
                   {hasFieldError("fullName") && (
-                    <p className="mt-1 text-sm text-red-400">{getFieldError("fullName")}</p>
+                    <FormErrorMessage
+                      message={formValidationMessages.name.error}
+                      type="error"
+                    />
                   )}
                 </div>
 
@@ -111,7 +127,10 @@ export default function ApplySection() {
                     inputMode="email"
                   />
                   {hasFieldError("email") && (
-                    <p className="mt-1 text-sm text-red-400">{getFieldError("email")}</p>
+                    <FormErrorMessage
+                      message={formValidationMessages.email.error}
+                      type="error"
+                    />
                   )}
                 </div>
 
@@ -131,7 +150,10 @@ export default function ApplySection() {
                     inputMode="tel"
                   />
                   {hasFieldError("phone") && (
-                    <p className="mt-1 text-sm text-red-400">{getFieldError("phone")}</p>
+                    <FormErrorMessage
+                      message={formValidationMessages.phone.error}
+                      type="error"
+                    />
                   )}
                 </div>
 
@@ -150,7 +172,10 @@ export default function ApplySection() {
                     }`}
                   />
                   {hasFieldError("address") && (
-                    <p className="mt-1 text-sm text-red-400">{getFieldError("address")}</p>
+                    <FormErrorMessage
+                      message={formValidationMessages.address.error}
+                      type="error"
+                    />
                   )}
                 </div>
               </div>
@@ -174,7 +199,10 @@ export default function ApplySection() {
                     style={{ color: '#000' }}
                   />
                   {hasFieldError("adults") && (
-                    <p className="mt-1 text-sm text-red-400">{getFieldError("adults")}</p>
+                    <FormErrorMessage
+                      message={formValidationMessages.adults.error}
+                      type="error"
+                    />
                   )}
                 </div>
 
@@ -195,7 +223,10 @@ export default function ApplySection() {
                     style={{ color: '#000' }}
                   />
                   {hasFieldError("children") && (
-                    <p className="mt-1 text-sm text-red-400">{getFieldError("children")}</p>
+                    <FormErrorMessage
+                      message={formValidationMessages.children.error}
+                      type="error"
+                    />
                   )}
                 </div>
 
@@ -214,7 +245,10 @@ export default function ApplySection() {
                     }`}
                   />
                   {hasFieldError("childrenAges") && (
-                    <p className="mt-1 text-sm text-red-400">{getFieldError("childrenAges")}</p>
+                    <FormErrorMessage
+                      message={formValidationMessages.childrenAges.error}
+                      type="error"
+                    />
                   )}
                 </div>
 
@@ -234,7 +268,10 @@ export default function ApplySection() {
                     inputMode="decimal"
                   />
                   {hasFieldError("monthlyIncome") && (
-                    <p className="mt-1 text-sm text-red-400">{getFieldError("monthlyIncome")}</p>
+                    <FormErrorMessage
+                      message={formValidationMessages.monthlyIncome.error}
+                      type="error"
+                    />
                   )}
                 </div>
 
@@ -253,7 +290,10 @@ export default function ApplySection() {
                     }`}
                   />
                   {hasFieldError("incomeSource") && (
-                    <p className="mt-1 text-sm text-red-400">{getFieldError("incomeSource")}</p>
+                    <FormErrorMessage
+                      message={formValidationMessages.incomeSource.error}
+                      type="error"
+                    />
                   )}
                 </div>
               </div>
@@ -292,7 +332,10 @@ export default function ApplySection() {
                 </label>
               </div>
               {hasFieldError("governmentAssistance") && (
-                <p className="mt-1 text-sm text-red-400">{getFieldError("governmentAssistance")}</p>
+                <FormErrorMessage
+                  message={formValidationMessages.governmentAssistance.error}
+                  type="error"
+                />
               )}
             </div>
 
@@ -314,7 +357,10 @@ export default function ApplySection() {
                   style={{ color: '#000' }}
                 />
                 {hasFieldError("needDescription") && (
-                  <p className="mt-1 text-sm text-red-400">{getFieldError("needDescription")}</p>
+                  <FormErrorMessage
+                    message={formValidationMessages.needDescription.error}
+                    type="error"
+                  />
                 )}
               </div>
 
@@ -335,7 +381,10 @@ export default function ApplySection() {
                   style={{ color: '#000' }}
                 />
                 {hasFieldError("intendedUse") && (
-                  <p className="mt-1 text-sm text-red-400">{getFieldError("intendedUse")}</p>
+                  <FormErrorMessage
+                    message={formValidationMessages.intendedUse.error}
+                    type="error"
+                  />
                 )}
               </div>
             </div>

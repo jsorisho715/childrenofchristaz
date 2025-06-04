@@ -58,6 +58,30 @@
     background-color: #0A0603 !important;
   }
 
+  /* Form input styling */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="password"],
+  textarea,
+  select {
+    @apply bg-white text-gray-900;
+  }
+
+  /* Placeholder text styling */
+  input::placeholder,
+  textarea::placeholder {
+    @apply text-gray-500;
+  }
+
+  /* Focus states */
+  input:focus,
+  textarea:focus,
+  select:focus {
+    @apply outline-none ring-2 ring-accent;
+  }
+
   /* Improved tap target sizes for mobile */
   button,
   a,
@@ -173,7 +197,7 @@ html {
 
 /* Prevent content from being hidden under fixed header */
 section {
-  scroll-margin-top: 4rem;
+  @apply pt-16;
 }
 
 /* Improve form element accessibility */

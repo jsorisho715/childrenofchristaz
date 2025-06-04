@@ -12,18 +12,12 @@ export const metadata: Metadata = {
   description:
     "Children of Christ is a 501(c)(3) nonprofit organization helping families in need. Donate or apply for assistance through our needs-based program in Phoenix, Arizona.",
   keywords: "nonprofit, donation, assistance, Phoenix Arizona, 501c3, charity, families in need, tax deductible",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   openGraph: {
     title: "Children of Christ - Helping Families in Need",
     description: "Supporting families through donations and assistance programs. All donations are tax-deductible.",
     type: "website",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Children of Christ Nonprofit",
-      },
-    ],
+    images: [],
   },
 }
 
